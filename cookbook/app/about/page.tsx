@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function About() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -9,12 +11,12 @@ export default function About() {
         your culinary inspirations in one place.
       </p>
       <div className="mt-8 border rounded-lg overflow-hidden shadow-lg"> 
-        <img
+        <Image 
           src="/chef.jpeg"
-          alt="About CookBook Illustration"
+          alt="chef image"
           width={300}
           height={200}
-        />
+        / >
       </div>
     </main>
   );
