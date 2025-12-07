@@ -8,7 +8,7 @@ export default function About() {
         starting out in the kitchen, CookBook provides an intuitive platform to keep all
         your culinary inspirations in one place.
       </p>
-      <div className="mt-8 border rounded-lg overflow-hidden shadow-lg">
+      <div className="mt-8 border rounded-lg overflow-hidden shadow-lg"> 
         <img
           src="/chef.jpeg"
           alt="About CookBook Illustration"
