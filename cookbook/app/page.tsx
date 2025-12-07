@@ -1,4 +1,5 @@
 import Image from "next/image";
+import RecipeRecommendation from "./components/recipeReccomendation";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
           height={200}
         />
       </div>
+      <RecipeRecommendation />
     </main>
   );
 }
