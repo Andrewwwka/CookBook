@@ -1,5 +1,6 @@
 import { fetchRandomMeal } from "@/lib/themealdb";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function RecipeRecommendation() {
   const meal = await fetchRandomMeal();
@@ -13,18 +14,18 @@ export default async function RecipeRecommendation() {
       <h2 className="text-2xl font-bold mb-2">Recipe Reccomendation of the Day</h2>
 
       <div className="md:flex gap-8 items-start">
-        <div className="md:w-1/3">
+        <div className="md:span-1">
             <Image
                 src={meal.strMealThumb}
                 alt={meal.strMeal}
-                width={300}
-                height={300}
+                width={200}
+                height={200}
                 className="w-full h-auto rounded-lg"
             />
             <button className="mt-4 px-4 py-2 bg-headerBrown text-white rounded hover:bg-opacity-90 transition">
                 View Recipe
             </button>
-            <button className="mt-4 ml-2 px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-opacity-90 transition">
+            <button className="mt-4 ml-3 px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-opacity-90 transition">
                 Save to My Cookbook
             </button>
         </div>
@@ -37,9 +38,9 @@ export default async function RecipeRecommendation() {
           <p className="text-gray-700 line-clamp-4">
             {meal.strInstructions}
           </p>
-          <a href={`/recipes/${meal.idMeal}`} className="text-blue-600 hover:underline">
+          <Link href={`/recipes/${meal.idMeal}`} className="font-bold">
             Read More...
-          </a>
+          </Link>
         </div>
 
       </div>
