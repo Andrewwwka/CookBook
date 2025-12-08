@@ -31,7 +31,7 @@ export default function SignupPage() {
 
     return (
         <main className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-      <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-2xl">
+      <div className=" max-w-md bg-white p-8 rounded-xl shadow-2xl">
         
         <h1 className="text-4xl font-serif font-bold text-center text-headerBrown mb-6">
           Create Your Cookbook Account
@@ -77,7 +77,6 @@ export default function SignupPage() {
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-headerBrown focus:border-headerBrown"
             />
           </div>
-
           {/* Error Message */}
           {error && (
             <p className="text-sm text-red-600 font-medium text-center">{error}</p>
@@ -87,19 +86,19 @@ export default function SignupPage() {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white transition ${
+            className={`flex justify-center mt-8 w-full py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white transition ${
               loading 
-                ? 'bg-gray-400 cursor-not-allowed' 
-                : 'bg-headerBrown hover:bg-opacity-90'
+                ? 'bg-gray-400 cursor-not-allowed text-gray-700' 
+                : 'bg-black'
             }`}
           >
             {loading ? 'Signing Up...' : 'Sign Up'}
           </button>
         </form>
 
-        <p className="mt-6 text-center text-sm text-gray-600">
+        <p className="mt-6 text-center text-small text-gray-700">
           Already have an account?{' '}
-          <Link href="/login" className="font-medium text-headerBrown hover:underline">
+          <Link href="/login" className="font-medium font-semibold hover:underline">
             Log In
           </Link>
         </p>
