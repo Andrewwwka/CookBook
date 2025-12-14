@@ -3,57 +3,65 @@
 import {useState } from 'react';
 import Link from 'next/link';
 import { auth } from '@/lib/firebase';
-import { createUserWithEmailAndPassword, UserCredential } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
-import { doc, setDoc } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
 
-export default function SignupPage() {
+interface isFirebaseAuthError {
+  code: string;
+  message: string;
+}
+
+const isFirebaseAuthError = (e: unknown): e is isFirebaseAuthError => {
+  return typeof e === 'object' && 
+  e !== null && 
+  'code' in e && 
+  'message' in e};
+
+export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
   const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError('');
 
-        if (password !== confirmPassword) {
-            setError('Passwords do not match');
-            return;
-        }
-
         setLoading(true);
 
+        if (!email || !password) {
+          setError('Please enter both email and password');
+          setLoading(false);
+          return;
+        }
+
         try {
-          const credential = (await createUserWithEmailAndPassword(
-            auth, 
-            email, 
-            password
-          )) as UserCredential;
-
-          const user = credential.user;
-
-          console.log('User created with UID:', user.uid);
-
-        await setDoc(doc(db, 'users', user.uid), {
-          email: user.email,
-          savedRecipeIds: [],
-          createdAt: new Date().toISOString(),
-        });
-
-        router.push('/login');
-        } catch (error) {
-          if (error instanceof Error) {
-            setError(error.message);
+          await signInWithEmailAndPassword(auth, email, password);
+          console.log('Login successful');
+          router.push('/');
+        }
+        catch (error) {
+          if (isFirebaseAuthError(error)) {
+            console.error('Firebase Auth Error:', error.code, error.message);
+            
+            switch (error.code) {
+              case 'auth/user-not-found':
+              case 'auth/wrong-password':
+              case 'auth/invalid-credential':
+                setError('Invalid email or password');
+                break;
+              default:
+                setError('Login failed. Please try again.');
+            }      
           } else {
+            console.log('Unknown error during login:', error);
             setError('An unknown error occurred');
           }
         } finally {
           setLoading(false);
-        }
+        }  
     };
 
     return (
@@ -61,7 +69,7 @@ export default function SignupPage() {
       <div className=" max-w-md bg-white p-8 rounded-xl shadow-2xl">
         
         <h1 className="text-4xl font-serif font-bold text-center text-headerBrown mb-6">
-          Create Your Cookbook Account
+          Login to CookBook
         </h1>
         
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -91,19 +99,6 @@ export default function SignupPage() {
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-headerBrown focus:border-headerBrown"
             />
           </div>
-          
-          {/* Confirm Password Field */}
-          <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">Confirm Password</label>
-            <input
-              id="confirmPassword"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-headerBrown focus:border-headerBrown"
-            />
-          </div>
           {/* Error Message */}
           {error && (
             <p className="text-sm text-red-600 font-medium text-center">{error}</p>
@@ -119,14 +114,13 @@ export default function SignupPage() {
                 : 'bg-black'
             }`}
           >
-            {loading ? 'Signing Up...' : 'Sign Up'}
+            {loading ? 'Loggin In...' : 'Login'}
           </button>
         </form>
-
         <p className="mt-6 text-center text-sm text-gray-600">
-          Already have an account?{' '}
-          <Link href="/login" className="font-medium font-semibold hover:underline">
-            Log In
+          Dont have an account?{' '}
+          <Link href="/signup" className="font-medium hover:underline font-semibold">
+            Sign Up
           </Link>
         </p>
       </div>
