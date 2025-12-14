@@ -6,7 +6,7 @@ export async function fetchRandomMeal() {
   try {
     const response = await fetch(url, {
       // Set to no-store to ensure a new random meal on every page load
-      cache: 'no-store' 
+      next: {revalidate: 60}
     });
 
     if (!response.ok) {
