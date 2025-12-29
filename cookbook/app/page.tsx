@@ -1,5 +1,5 @@
 import Image from "next/image";
-import RecipeRecommendation from "./components/recipeReccomendation";
+import RecipeRecommendation from "../components/recipeReccomendation";
 
 export default function Home() {
   return (

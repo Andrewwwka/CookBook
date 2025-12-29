@@ -25,9 +25,6 @@ export default async function RecipeRecommendation() {
             <button className="mt-4 px-4 py-2 bg-headerBrown text-white rounded hover:bg-opacity-90 transition">
                 View Recipe
             </button>
-            <button className="mt-4 ml-3 px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-opacity-90 transition">
-                Save to My Cookbook
-            </button>
         </div>
 
         <div className="md:w-2/3 mt-6 md:mt-0">
