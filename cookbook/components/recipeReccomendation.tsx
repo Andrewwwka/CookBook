@@ -11,7 +11,7 @@ export default async function RecipeRecommendation() {
 
   return (
     <section className="p-4 border rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-2">Recipe Reccomendation of the Day</h2>
+      <h2 className="text-2xl font-bold mb-2">Recipe Recomendation of the Day</h2>
 
       <div className="md:flex gap-8 items-start">
         <div className="md:span-1">
