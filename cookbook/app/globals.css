@@ -30,6 +30,23 @@ a {
   color: inherit;
   text-decoration: none;
 }
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    gap: 0.25rem;
+    padding: 0.25rem;
+  }   
+  .title {
+    font-size: 1.5rem;
+  }
+}
 .app-header {
   background-color: var(--headerBrown);
   padding: 1rem;
