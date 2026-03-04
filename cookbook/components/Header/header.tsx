@@ -46,7 +46,7 @@ export default function Header() {
 
         {/* MOBILE HAMBURGER BUTTON (Hidden on Desktop) */}
         <button 
-          className="md:hidden p-2 rounded-md hover:bg-white/10"
+          className="lg:hidden p-2 rounded-md hover:bg-white/10"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle Menu"
         >
@@ -60,7 +60,7 @@ export default function Header() {
         </button>
 
         {/* DESKTOP MIDDLE NAVIGATION (Hidden on Mobile) */}
-        <nav className="hidden md:flex flex-grow justify-center text-lg">
+        <nav className="hidden lg:flex flex-grow justify-center text-lg">
           <div className="space-x-8">
             <Link href="/" className="hover:underline">Home</Link>
             <Link href="/about" className="hover:underline">About</Link>
@@ -74,7 +74,7 @@ export default function Header() {
         </nav>
 
         {/* DESKTOP AUTH LINKS (Hidden on Mobile) */}
-        <div className="hidden md:flex flex-shrink-0 items-center space-x-4 text-lg font-medium">
+        <div className="hidden lg:flex flex-shrink-0 items-center space-x-4 text-lg font-medium">
           {user ? (
             <>
               <span className="text-sm font-light truncate max-w-[150px]">
@@ -102,7 +102,7 @@ export default function Header() {
 
       {/* --- MOBILE DROPDOWN MENU --- */}
       {isMenuOpen && (
-        <div className="md:hidden bg-headerBrown border-t border-white/10 px-6 py-8 space-y-6 flex flex-col">
+        <div className="lg:hidden bg-headerBrown border-t border-white/10 px-6 py-8 space-y-6 flex flex-col">
           <Link href="/" className="text-xl border-b border-white/10 pb-2" onClick={closeMenu}>Home</Link>
           <Link href="/about" className="text-xl border-b border-white/10 pb-2" onClick={closeMenu}>About</Link>
           
