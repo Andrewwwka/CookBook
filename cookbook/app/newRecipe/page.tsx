@@ -24,7 +24,7 @@ export default function NewRecipePage() {
     setIsSubmitting(true);
 
     try {
-      // 🔑 The Magic: Adding a document to the "recipes" collection
+      // Adding a document to the "recipes" collection
       await addDoc(collection(db, 'recipes'), {
         title,
         description,

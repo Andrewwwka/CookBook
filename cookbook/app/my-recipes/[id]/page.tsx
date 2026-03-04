@@ -25,7 +25,7 @@ export default function RecipeDetailsPage() {
   const [fetching, setFetching] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
   
-  // 🔑 New States for Editing
+  // New States for Editing
   const [isEditing, setIsEditing] = useState(false);
   const [editTitle, setEditTitle] = useState('');
   const [editDescription, setEditDescription] = useState('');
