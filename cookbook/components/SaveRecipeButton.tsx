@@ -5,16 +5,7 @@ import { db } from '@/lib/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
-
-interface Meal {
-    idMeal: string;
-    strMeal: string;
-    strMealThumb: string;
-    strCategory: string;
-    strArea: string;
-    strInstructions: string;
-    [key: string]: string; // This allows for the strIngredient1, strMeasure1 dynamic keys
-  }
+import { Meal } from '@/lib/themealdb';
 
 export default function SaveRecipeButton({ meal }: { meal: Meal }) {
   const { user } = useAuth();

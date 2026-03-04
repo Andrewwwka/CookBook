@@ -1,6 +1,17 @@
+export interface Meal {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+  strCategory: string;
+  strArea: string;
+  strInstructions: string;
+  [key: string]: string | null | undefined;
+  // Add more fields as needed, like ingredients, etc.
+}
+
 const BASE_URL = 'https://www.themealdb.com/api/json/v1/1';
 
-export async function fetchRandomMeal() {
+export async function fetchRandomMeal(): Promise<Meal | null> {
   const url = `${BASE_URL}/random.php`;
 
   try {
@@ -23,7 +34,7 @@ export async function fetchRandomMeal() {
   }
 }
 
-export async function getMealDetails(id: string) {
+export async function getMealDetails(id: string): Promise<Meal | null> {
   const url = `${BASE_URL}/lookup.php?i=${id}`;
 
   try {
