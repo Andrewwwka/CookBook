@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   description: "Your personalized recipe manager",
 };
 
+// RootLayout wraps all pages and includes the header and authentication context provider
+
 export default function RootLayout({
 children,}: Readonly<{
   children: React.ReactNode;

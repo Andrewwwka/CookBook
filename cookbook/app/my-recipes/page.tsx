@@ -7,6 +7,8 @@ import { db } from '@/lib/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
 
+// My Recipes page that displays a list of recipes saved by the logged-in user. Fetches recipes from Firestore based on the user's ID and includes loading states and a button to add new recipes.
+
 // Define what a Recipe looks like
 interface Recipe {
   id: string;

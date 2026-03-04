@@ -1,6 +1,8 @@
 import Image from "next/image";
 import RecipeRecommendation from "../components/recipeReccomendation";
 
+//Home page with a welcoming message, an illustration, and the recipe recommendation component
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">

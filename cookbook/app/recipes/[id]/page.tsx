@@ -2,6 +2,8 @@ import { getMealDetails } from '@/lib/themealdb';
 import Image from 'next/image';
 import SaveRecipeButton from '@/components/SaveRecipeButton'; // 1. Import your button
 
+// Meal details page that fetches meal details from TheMealDB based on the URL parameter and displays them. Also includes a button to save the recipe to the user's cookbook.
+
 interface MealPageProps {
   params: Promise<{ // Note: In newer Next.js versions, params is a Promise
     id: string;

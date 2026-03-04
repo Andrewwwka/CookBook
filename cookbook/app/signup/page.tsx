@@ -8,6 +8,9 @@ import { useRouter } from 'next/navigation';
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 
+// Signup page with form for email, password, and confirm password. Validates that passwords match, creates a new user with Firebase Authentication, saves user data to Firestore, and redirects to login page on success. Includes error handling and loading state management.
+
+
 export default function SignupPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

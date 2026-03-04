@@ -7,6 +7,8 @@ import { doc, getDoc, deleteDoc, updateDoc } from 'firebase/firestore';
 import { useAuth } from '@/context/AuthContext';
 import Image from 'next/image';
 
+// Recipe details page that fetches a specific recipe from Firestore based on the URL parameter, displays its details, and allows the owner to edit or delete it. Includes loading states and error handling.
+
 interface Recipe {
   title: string;
   description: string;

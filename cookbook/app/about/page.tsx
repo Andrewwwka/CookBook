@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+// About page with a description of the app and an image of a chef
+
 export default function About() {
   return (
     <main className="flex min-h-screen flex-col items-center px-6 py-12 md:p-24">

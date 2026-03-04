@@ -6,6 +6,8 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 
+// New Recipe page with a form to create a new recipe. On submission, it saves the recipe to Firestore linked to the logged-in user and redirects to the My Recipes page. Includes form state management and error handling.
+
 export default function NewRecipePage() {
   const { user } = useAuth();
   const router = useRouter();

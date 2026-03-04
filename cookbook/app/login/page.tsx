@@ -6,6 +6,8 @@ import { auth } from '@/lib/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 
+// Login page with form for email and password, error handling, and loading state management. Uses Firebase Authentication to log in users and redirects to home page on success.
+
 interface isFirebaseAuthError {
   code: string;
   message: string;
