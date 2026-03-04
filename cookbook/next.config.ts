@@ -2,12 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    unoptimized: true, // Add this line here
     remotePatterns: [
       {
         protocol: "https",
         hostname: "www.themealdb.com",
-        port: '',
-        pathname: '/images/media/meals/**',
+        pathname: "/**",
       },
     ],
   },
