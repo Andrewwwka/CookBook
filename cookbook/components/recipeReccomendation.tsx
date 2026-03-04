@@ -14,7 +14,7 @@ export default async function RecipeRecommendation() {
        - Added 'border-2 border-gray-200' for a visible outer box
        - Added 'bg-white' and 'shadow-lg' to make it feel more premium
     */
-    <section className="p-6 md:p-8 -mx-4 md:mx-0 bg-white border-2 border-gray-200 rounded-none md:rounded-2xl shadow-lg">
+    <section className="p-6 md:p-8 -mx-4 md:mx-0 bg-white border-2 border-black-200 rounded-none md:rounded-2xl shadow-lg padding-6 md:padding-8">
       <h2 className="text-xl md:text-2xl font-bold mb-6 text-center md:text-left text-gray-800 tracking-tight">
         Recipe Recommendation of the Day
       </h2>
